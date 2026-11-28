@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: wens-backend
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/wens?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
+    username: ${DB_USER:wens}
+    password: ${DB_PASSWORD:wens}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+
+server:
+  port: 8080
+
+# Used from Sprint 1 (JWT). Override with an environment variable outside local development.
+wens:
+  jwt:
+    secret: ${JWT_SECRET:change-me-in-local-env-only-change-me-in-local-env}
+    expiration-minutes: 120
